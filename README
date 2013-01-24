@@ -8,14 +8,12 @@ http://dusers.dip.jp/modules/wiki/?Libraries%2FPhobos を参考に、手元で試しに pho
 4 make -f win32.mak lib\gcstub.obj
  - エラーが出た。同上。
 5 make -f win32.mak target
- - エラーが出た。同じ対処をしたがまだエラーが出ている:
- -- src\core\atomic.d(369): Error: unrecognized trait isPOD
- -- src\core\atomic.d(371): Error: static assert  "argument to atomicLoad() must be POD"
- -- src\core\atomic.d(192):        instantiated from here: atomicLoad!(cast(MemoryOrder)0,uint)
- -- src\object_.d(1939):        instantiated from here: atomicOp!("+=",uint,uint)
-
+ - エラーが出た。同じ対処をしたがまだエラーが出た。更に DMD を 2.060 から 2.061 にしたら成功した。(他のもこれで成功したのでは...)
 6 cd ../phobos
 7 make -fwin32.mak unittest
+ - エラーが出た。
+ -- dmd -O -w -d -property -L/co -c -unittest -ofunittest1.obj std\stdio.d std\stdiobase.d  std\string.d std\format.d  std\file.d
+ -- std\traits.d(187): Error: static assert  ("std.core" == "core") is false
 
 
 -----
