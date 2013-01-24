@@ -14,7 +14,7 @@
  */
 module core.sys.windows.windows;
 
-version (Windows):
+version (Windows){
 extern (Windows):
 nothrow:
 
@@ -3677,3 +3677,4 @@ HINSTANCE ShellExecuteW(HWND hwnd, LPCWSTR lpOperation, LPCWSTR lpFile, LPCWSTR 
 
 UINT_PTR SetTimer(HWND hwnd, UINT_PTR nIDEvent, UINT uElapse, TIMERPROC lpTimerFunc);
 BOOL KillTimer(HWND hwnd, UINT_PTR nIDEvent);
+}
